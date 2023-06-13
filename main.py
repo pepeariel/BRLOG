@@ -88,4 +88,3 @@ Pipeline.excel_to_parquet()
 
 # Send parquet file to bucket s3
 Pipeline.send_file_to_s3(s3)
-
