@@ -8,12 +8,24 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime as dt
 from functions import FileHandler
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
+# Test for diferent chrome-driver
+CHROMEDRIVER_PATH = 'chromedriver'
+WINDOW_SIZE = "1920,1080"
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
+chrome_options.add_argument('--no-sandbox')
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
+                          chrome_options=chrome_options
+                         )
 # Load local variables
 load_dotenv()
 
 # Selenium ChromeDriver
-driver = webdriver.Chrome(ChromeDriverManager().install())
+#driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # url website Brasilrisk
 url = 'http://multilog.brasilrisk.com.br'
