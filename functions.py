@@ -35,6 +35,8 @@ class FileHandler:
     def send_file_to_s3(self, s3):
         with open(self.parquet_file_path, 'rb') as f:
             s3.Bucket(self.bucket_name).upload_file(Filename=self.parquet_file_path, Key=self.parquet_file_path)
+            # Remove parquet file from this folder
+            os.remove(self.parquet_file_path)
             print('Arquivo carregado no bucket com sucesso!')    
 
     # Save the file in parquet format
@@ -53,8 +55,9 @@ class FileHandler:
             # Save DataFrame as Parquet file
             df.to_parquet(self.parquet_file_path)
 
-            # Delete the old Excel file
-            # os.remove(excel_file_path)
+            # Delete the temporary Excel file and parquet file
+            os.remove(self.excel_file_path)
+            
             return print('Arquivo parquet salvo com sucesso!')
         
         except Exception as e:
