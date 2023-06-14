@@ -13,7 +13,7 @@ class FileHandler:
         self.aws_secret_access_key = os.getenv('aws_secret_access_key')
         self.bucket_name = os.getenv('bucket_name')
         self.s3_region = os.getenv('s3_region')
-        self.excel_file_path = r'/Users/pedroariel/Downloads/Relatório de entregas.xlsx' # Path to BRlog file
+        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx' #r'/Users/pedroariel/Downloads/Relatório de entregas.xlsx'
         self.parquet_file_path = f'relatorio_entregas{dt.now()}.parquet' 
 
     def create_s3_connection(self):
