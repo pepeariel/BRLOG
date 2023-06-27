@@ -7,13 +7,13 @@ from datetime import datetime as dt
 class FileHandler:
     
     '''' This class is able to conect to aws bucket read files and send new ones '''
-    def __init__(self):
+    def __init__(self, aws_access_key_id, aws_secret_access_key, bucket_name, s3_region):
         
-        self.aws_access_key_id = os.getenv('aws_access_key_id')
-        self.aws_secret_access_key = os.getenv('aws_secret_access_key')
-        self.bucket_name = os.getenv('bucket_name')
-        self.s3_region = os.getenv('s3_region')
-        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx' #r'/Users/pedroariel/Downloads/Relatório de entregas.xlsx'
+        self.aws_access_key_id = aws_access_key_id
+        self.aws_secret_access_key = aws_secret_access_key
+        self.bucket_name = bucket_name
+        self.s3_region = s3_region
+        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx' #/Users/pedroariel/Downloads/Relatório de entregas.xlsx
         self.parquet_file_path = f'relatorio_entregas{dt.now()}.parquet' 
 
     def create_s3_connection(self):
