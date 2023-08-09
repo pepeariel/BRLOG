@@ -13,6 +13,7 @@ class FileHandler:
         self.aws_secret_access_key = aws_secret_access_key
         self.bucket_name = bucket_name
         self.s3_region = s3_region
+        # change path for different os
         # if run on mac: /Users/pedroariel/Downloads/Relatório de entregas.xlsx
         # if run on test linux: /home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx
         # if run on production linux: /home/ec2-user/Relatório de entregas.xlsx
