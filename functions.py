@@ -8,12 +8,15 @@ class FileHandler:
     
     '''' This class is able to conect to aws bucket read files and send new ones '''
     def __init__(self, aws_access_key_id, aws_secret_access_key, bucket_name, s3_region):
-        
+
         self.aws_access_key_id = aws_access_key_id
         self.aws_secret_access_key = aws_secret_access_key
         self.bucket_name = bucket_name
         self.s3_region = s3_region
-        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx' #/Users/pedroariel/Downloads/Relatório de entregas.xlsx
+        # if run on mac: /Users/pedroariel/Downloads/Relatório de entregas.xlsx
+        # if run on test linux: /home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx
+        # if run on production linux: /home/ec2-user/Relatório de entregas.xlsx
+        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx'  
         self.parquet_file_path = f'relatorio_entregas{dt.now()}.parquet' 
 
     def create_s3_connection(self):

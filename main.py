@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 if __name__ == '__main__':
     # Test for diferent chrome-driver
-    CHROMEDRIVER_PATH = 'chromedriver'
+    """ CHROMEDRIVER_PATH = 'chromedriver'
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                               chrome_options=chrome_options
-                             )
+                             ) """
     # Load local variables
     load_dotenv()
 
@@ -33,8 +33,8 @@ if __name__ == '__main__':
     bucket_name = os.getenv('bucket_name')
     s3_region = os.getenv('s3_region')
 
-    # Selenium ChromeDriver
-    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    # Selenium ChromeDriver -- UNCOMMENT TO RUN ON LOCAL MACHINE
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # url website Brasilrisk
     url = 'http://multilog.brasilrisk.com.br'
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     time.sleep(3)
     filtro_relatorio.click()
     time.sleep(3)
-    coletas_entregas = driver.find_element(By.XPATH,'//*[@id="filter"]/div/div/div/div[1]/div[2]/div[1]/div/div/div[2]/div[1]')
+    coletas_entregas = driver.find_element(By.XPATH,'//*[@id="filtros_principais"]/div[1]/div/div/div[2]/div[2]')
     time.sleep(3)
     coletas_entregas.click()
     time.sleep(5)
