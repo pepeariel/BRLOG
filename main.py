@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 if __name__ == '__main__':
     # Test for diferent chrome-driver
-    """ CHROMEDRIVER_PATH = 'chromedriver'
+    CHROMEDRIVER_PATH = 'chromedriver'
     WINDOW_SIZE = "1920,1080"
     chrome_options = Options()
     chrome_options.add_argument("--headless")
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     chrome_options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
                               chrome_options=chrome_options
-                             ) """
+                             )
     # Load local variables
     load_dotenv()
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     s3_region = os.getenv('s3_region')
 
     # Selenium ChromeDriver -- UNCOMMENT TO RUN ON LOCAL MACHINE
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    #driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # url website Brasilrisk
     url = 'http://multilog.brasilrisk.com.br'
