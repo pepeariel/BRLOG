@@ -16,8 +16,8 @@ class FileHandler:
         # if run on mac: /Users/pedroariel/Downloads/Relatório de entregas.xlsx
         # if run on test linux: /home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx
         # if run on production linux: /home/ec2-user/Relatório de entregas.xlsx
-        self.excel_file_path = r'/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx'  
-        self.parquet_file_path = f'relatorio_entregas{dt.now()}.parquet' 
+        self.excel_file_path = r'/home/ec2-user/Relatório de entregas.xlsx'  
+        self.parquet_file_path = f'/home/ec2-user/relatorio_entregas{dt.now()}.parquet' 
 
     def create_s3_connection(self):
         # Connect to a s3 bucket
