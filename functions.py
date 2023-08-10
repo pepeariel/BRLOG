@@ -13,7 +13,6 @@ class FileHandler:
         self.aws_secret_access_key = aws_secret_access_key
         self.bucket_name = bucket_name
         self.s3_region = s3_region
-        # change path for different os
         # if run on mac: /Users/pedroariel/Downloads/Relatório de entregas.xlsx
         # if run on test linux: /home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx
         # if run on production linux: /home/ec2-user/Relatório de entregas.xlsx
@@ -38,7 +37,7 @@ class FileHandler:
     # function to send file to s3 bucket
     def send_file_to_s3(self, s3):
         with open(self.parquet_file_path, 'rb') as f:
-            s3.Bucket(self.bucket_name).upload_file(Filename=self.parquet_file_path, Key=self.parquet_file_path)
+            s3.Bucket(self.bucket_name).upload_file(Filename=self.parquet_file_path[15:], Key=self.parquet_file_path[15:])
             # Remove parquet file from this folder
             os.remove(self.parquet_file_path)
             print('Arquivo carregado no bucket com sucesso!')    

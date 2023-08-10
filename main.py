@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # Conectar ao site
     driver.get(url)
     time.sleep(20)
-
+	
     # Registrar objeto de usuario e senha
     username = driver.find_element(By.ID, 'usuario')
     time.sleep(3)
