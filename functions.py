@@ -14,7 +14,8 @@ class FileHandler:
         self.bucket_name = bucket_name
         self.s3_region = s3_region
         # if run on mac: /Users/pedroariel/Downloads/Relatório de entregas.xlsx
-        # if run on test linux: /home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx
+        # if run on test linux:
+        #self.excel_file_path = '/home/ec2-user/Documents/BRLOG/Relatório de entregas.xlsx'
         # if run on production linux: /home/ec2-user/Relatório de entregas.xlsx
         self.excel_file_path = r'/home/ec2-user/Relatório de entregas.xlsx'  
         self.parquet_file_path = f'/home/ec2-user/relatorio_entregas{dt.now()}.parquet' 
@@ -37,6 +38,9 @@ class FileHandler:
     # function to send file to s3 bucket
     def send_file_to_s3(self, s3):
         with open(self.parquet_file_path, 'rb') as f:
+	    #path for linux test
+            #s3.Bucket(self.bucket_name).upload_file(Filename=self.parquet_file_path, Key=self.parquet_file_path[15:])
+            #path to root
             s3.Bucket(self.bucket_name).upload_file(Filename=self.parquet_file_path[15:], Key=self.parquet_file_path[15:])
             # Remove parquet file from this folder
             os.remove(self.parquet_file_path)
